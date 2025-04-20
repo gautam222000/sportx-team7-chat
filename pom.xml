@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- use the Spring Boot parent for dependency management -->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.4.4</version>  <!-- latest stable as of Mar 2025 :contentReference[oaicite:0]{index=0} -->
+    <relativePath/> <!-- lookup parent from Maven Central -->
+  </parent>
+
+  <groupId>com.sportx.team7</groupId>
+  <artifactId>sportx-team7-chat</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <name>sportx-team7-chat</name>
+  <description>Real‑time chat service with Spring Boot and WebSocket</description>
+
+  <properties>
+    <!-- compile with Java 17 -->
+    <java.version>17</java.version>
+  </properties>
+
+  <dependencies>
+    <!-- core web support -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- WebSocket support -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-websocket</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- so you can run `mvn spring-boot:run` -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>
