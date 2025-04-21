@@ -13,22 +13,6 @@ public interface MessageRepository extends MongoRepository<Message, String> {
      *   <li>{@code receiverId} matches the given {@code receiverId}.</li>
      * </ul>
      * <p>
-     * Results are returned in an unspecified order.
-     * </p>
-     *
-     * @param senderId   the ID of the user who sent the messages
-     * @param receiverId the ID of the user who received the messages
-     * @return a {@link List} of {@link Message} objects matching the criteria
-     */
-    List<Message> findBySenderIdAndReceiverId(String senderId, String receiverId);
-
-    /**
-     * Retrieve all {@link Message} documents where:
-     * <ul>
-     *   <li>{@code senderId} matches the given {@code senderId}, and</li>
-     *   <li>{@code receiverId} matches the given {@code receiverId}.</li>
-     * </ul>
-     * <p>
      * Results are sorted by the {@code timestamp} field in ascending order,
      * so older messages appear first.
      * </p>

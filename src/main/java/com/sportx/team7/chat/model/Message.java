@@ -10,9 +10,10 @@ public class Message {
 
     @Id
     private String id;
-
     private String senderId;
+    private String senderName;
     private String receiverId;
+    private String receiverName;
     private String message;
     private Instant timestamp;
 
@@ -69,4 +70,21 @@ public class Message {
     public void setTimestamp(Instant timestamp) {
         this.timestamp = timestamp;
     }
+
+    public String getReceiverName() {
+        return receiverName;
+    }
+
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
 }
