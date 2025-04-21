@@ -45,6 +45,6 @@ public class MessageService {
      * @return a list of {@link Message} sorted by timestamp (oldest first)
      */
     public List<Message> getMessages(String senderId, String receiverId) {
-        return messageRepository.findBySenderIdAndReceiverIdOrderByTimestampAsc(senderId, receiverId);
+        return messageRepository.findConversationBetweenUsers(senderId, receiverId);
     }
 }
