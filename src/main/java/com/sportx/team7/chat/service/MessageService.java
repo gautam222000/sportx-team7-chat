@@ -4,6 +4,7 @@ import com.sportx.team7.chat.model.Message;
 import com.sportx.team7.chat.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 import java.util.List;
 
@@ -15,14 +16,20 @@ public class MessageService {
     @Autowired
     private MessageRepository messageRepository;
 
+    @Autowired
+    private SimpMessagingTemplate messagingTemplate;
+
     /**
-     * Persist a new Message. Ensures timestamp is set to now.
+     * Persist a new Message. Ensures timestamp is set to now,
+     * then broadcasts it on the WebSocket topic.
      *
      * @param message the message to save
      * @return the saved Message with generated ID and timestamp
      */
     public Message saveMessage(Message message) {
-        return messageRepository.save(message);
+        Message data = messageRepository.save(message);
+        messagingTemplate.convertAndSend("/topic/newMessage", data);
+        return data;
     }
 
     /**
